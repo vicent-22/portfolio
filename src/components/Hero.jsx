@@ -21,7 +21,7 @@ export default function Hero() {
           <p className="hero__subtitle">
             Desarrollo aplicaciones web con React y Node.js, cuidando tanto la experiencia de usuario como la calidad del código. Aquí puedes ver algunos de mis proyectos y las tecnologías con las que trabajo.
           </p>
-          <a className="btn btn-cv" href="/images/CV_VICENT_TORRES.pdf">Currículum</a>
+          <a className="btn btn-cv" href="images/CV_VICENT_TORRES.pdf">Currículum</a>
         </div>
       </div>
     </section>
