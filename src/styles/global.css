@@ -1,22 +1,17 @@
 /* =========================
-   Reset + anti overflow
+   Base / Reset
 ========================= */
-:root {
-  color-scheme: dark;
-}
+:root { color-scheme: dark; }
 
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;            /* ✅ evita scroll lateral */
+  overflow-x: hidden;
   font-family: system-ui, sans-serif;
   background: #0b0f19;
   color: #fff;
@@ -25,37 +20,20 @@ body {
 
 #root {
   width: 100%;
-  overflow-x: clip;              /* ✅ mejor que hidden (si no soporta, no pasa nada) */
+  overflow-x: clip;
 }
 
-.icon {
-  font-size: xx-large;
-  padding: 20px;
-}
+a { color: inherit; text-decoration: none; }
 
-/* =========================
-   Layout
-========================= */
 .container {
   max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.section {
-  padding: 48px 0;
-}
+.section { padding: 48px 0; }
 
-.muted {
-  opacity: 0.8;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+.muted { opacity: 0.8; }
 
 /* =========================
    Navbar
@@ -74,6 +52,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 14px 0;
+  gap: 10px;
 }
 
 .nav__links {
@@ -83,22 +62,11 @@ a {
   flex-wrap: wrap;
 }
 
-.logo {
-  font-weight: 800;
-}
+.logo { font-weight: 800; }
 
 /* =========================
-   UI
+   Buttons
 ========================= */
-.badge {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(50, 205, 50, 0.12);
-  border: 1px solid rgba(50, 205, 50, 0.25);
-  width: fit-content;
-}
-
 .btn {
   display: inline-flex;
   align-items: center;
@@ -117,17 +85,13 @@ a {
   background: rgba(255, 255, 255, 0.05);
 }
 
-.btn--disabled {
-  opacity: 0.55;
-}
-
 .btn-contact {
   font-size: 40px;
   margin: .5rem;
-  ;
 }
+
 /* =========================
-   Cards / Grid (anti overflow)
+   Cards / Flex grid
 ========================= */
 .grid {
   display: flex;
@@ -138,28 +102,24 @@ a {
 
 .card {
   width: 320px;
-  min-width: 0; /* ✅ importante */
+  min-width: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
   border-radius: 16px;
   padding: 10px;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
 
 .card .muted {
   margin: 10px 0 0;
-  flex: 1;               /* 👈 clave */
-  display: flex;         /* para centrar verticalmente si quieres */
-  align-items: center;   /* 👈 centra el texto dentro del hueco */
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 
-/* Chips siempre debajo del párrafo, con separación consistente */
-.chips {
-  margin: 12px 0 0;
-}
+.chips { margin-top: 12px; }
 
 .chip {
   font-size: 12px;
@@ -171,31 +131,25 @@ a {
 }
 
 .actions {
-  margin-top: auto;      /* 👈 clave */
+  margin-top: auto;
   padding-top: 14px;
 }
 
 /* =========================
-   HERO (centrado y sin overflow)
+   Hero
 ========================= */
-
-.hero {
-  padding: 90px 0 40px;
-}
+.hero { padding: 90px 0 40px; }
 
 .hero__grid {
-  /* ✅ usa el mismo ancho que container */
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 32px;
   align-items: center;
-  min-width: 0; /* ✅ */
+  min-width: 0;
 }
 
 .hero__left,
-.hero__right {
-  min-width: 0; /* ✅ evita que el contenido empuje */
-}
+.hero__right { min-width: 0; }
 
 .hero__title {
   margin: 0 0 10px;
@@ -204,9 +158,7 @@ a {
   letter-spacing: -0.02em;
 }
 
-.hero__hi {
-  opacity: 0.95;
-}
+.hero__hi { opacity: 0.95; }
 
 .hero__name {
   background: linear-gradient(90deg, rgba(93, 104, 255, 1), rgba(255, 93, 168, 1));
@@ -223,36 +175,25 @@ a {
   opacity: 0.8;
 }
 
-.hero__cta {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 18px;
-}
-
-.hero__btn {
-  box-shadow: 0 10px 25px rgba(93, 104, 255, 0.18);
-}
-
-.hero__left {
-}
-
+/* “invadir” un poco el texto hacia la izquierda (solo desktop) */
 .hero__right {
-  max-width: calc(100% + 80px);  /* 🔑 bloque más ancho */
-  margin-left: -80px; 
+  max-width: calc(100% + 80px);
+  margin-left: -80px;
 }
 
+/* =========================
+   Avatar (siempre redondo)
+========================= */
 .avatar {
   width: min(320px, 70vw);
   aspect-ratio: 1 / 1;
-  border-radius: 999px;                 /* ✅ círculo */
+  border-radius: 999px;
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.06);
   box-shadow: 0 14px 40px rgba(0,0,0,.35);
   padding: 12px;
   position: relative;
-  overflow: hidden;                      /* ✅ recorta */
+  overflow: hidden;
 }
 
 .avatar::before {
@@ -268,110 +209,44 @@ a {
 .avatar__inner {
   position: relative;
   width: 100%;
-  height: 100%;                          /* ✅ */
-  border-radius: 999px;                  /* ✅ círculo */
-  overflow: hidden;                      /* ✅ recorta lo de dentro */
+  height: 100%;
+  border-radius: 999px;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.10);
-  background: white;
+  background: #fff;
   display: grid;
-  place-items: center;                   /* ✅ centra */
+  place-items: center;
 }
 
 .avatar_img {
-  width: 82%;                            /* ✅ imagen más pequeña */
+  width: 82%;
   height: 82%;
   object-fit: cover;
-  border-radius: 999px;                  /* ✅ círculo */
+  border-radius: 999px;
   display: block;
 }
 
-
-
-.avatar__initials {
-  font-size: 88px;
-  font-weight: 900;
-  opacity: 0.9;
-}
-
 /* =========================
-   Marquee (sin width:max-content)
+   Responsive
 ========================= */
-.marquee {
-  margin-top: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  border-radius: 18px;
-  overflow: hidden;
-  padding: 12px 0;
-  width: 100%;
-}
-
-.marquee__track {
-  display: inline-flex;     /* ✅ no empuja el layout */
-  gap: 10px;
-  padding: 0 12px;
-  white-space: nowrap;      /* ✅ */
-  will-change: transform;
-  animation: marquee 18s linear infinite;
-}
-
-.tech-pill {
-  font-size: 13px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  opacity: 0.9;
-  white-space: nowrap;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
-}
-/* =========================
-   Responsive (ordenado)
-========================= */
-
-/* 1) Tablet / pantallas medianas */
 @media (max-width: 1024px) {
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .hero {
-    padding: 72px 0 32px;
-  }
-
-  .hero__grid {
-    gap: 24px;
-  }
-
-  .avatar {
-    width: min(300px, 60vw);
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .container { padding: 0 16px; }
+  .hero { padding: 72px 0 32px; }
+  .hero__grid { gap: 24px; }
+  .avatar { width: min(300px, 60vw); border-radius: 999px; }
 }
 
-/* 2) Móvil */
 @media (max-width: 900px) {
-  /* hero a una columna */
   .hero__grid {
     grid-template-columns: 1fr;
     gap: 18px;
   }
 
-  /* quitamos “invadir” para no romper en móvil */
   .hero__right {
     max-width: 100%;
     margin-left: 0;
   }
 
-  /* alineaciones */
   .hero__left {
     display: grid;
     justify-items: center;
@@ -384,50 +259,12 @@ a {
     margin-right: auto;
   }
 
-  .hero__cta {
-    justify-content: center;
-  }
-
-  /* avatar más controlado */
-  .avatar {
-    width: min(260px, 75vw);
-  }
-
-  /* proyectos a una columna */
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* navbar más compacta */
-  .nav__inner {
-    gap: 10px;
-  }
-
-  .nav__links {
-    gap: 10px;
-  }
+  .avatar { width: min(260px, 75vw); border-radius: 999px;}
 }
 
-/* 3) Móvil pequeño */
 @media (max-width: 480px) {
-  .hero {
-    padding: 60px 0 28px;
-  }
-
-  .hero__title {
-    font-size: clamp(30px, 8vw, 44px);
-  }
-
-  .btn {
-    width: 100%;               /* botones en bloque */
-  }
-
-  .hero__cta {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .avatar {
-    width: min(240px, 80vw);
-  }
+  .hero { padding: 60px 0 28px; }
+  .hero__title { font-size: clamp(30px, 8vw, 44px); }
+  .btn { width: 100%; }
+  .avatar { width: min(240px, 80vw); border-radius: 999px;}
 }
