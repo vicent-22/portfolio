@@ -1,3 +1,5 @@
+import perfil from "../assets/perfil.jpeg"
+
 export default function Hero() {
   return (
     <section className="hero" id="top">
@@ -5,7 +7,7 @@ export default function Hero() {
         <div className="hero__left">
           <div className="avatar">
             <div className="avatar__inner" aria-label="Foto de perfil">
-              <img src="/perfil.jpeg" alt="Foto de perfil" className="avatar_img"/>
+              <img src={perfil} alt="Foto de perfil" className="avatar_img"/>
             </div>
           </div>
         </div>

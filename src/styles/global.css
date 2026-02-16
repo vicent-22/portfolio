@@ -130,15 +130,14 @@ a {
    Cards / Grid (anti overflow)
 ========================= */
 .grid {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* ✅ evita overflow */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
-  margin-top: 16px;
-  align-items: stretch;
 }
 
 .card {
+  width: 320px;
   min-width: 0; /* ✅ importante */
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.06);
