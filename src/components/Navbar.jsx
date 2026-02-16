@@ -1,8 +1,7 @@
 export default function Navbar() {
   return (
     <header className="nav">
-      <div className="container nav__inner">
-        <a className="logo" href="#top"></a>
+      <div className="container">
         <nav className="nav__links">
           <a href="#about">Sobre mí</a>
           <a href="#projects">Proyectos</a>

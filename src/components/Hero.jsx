@@ -14,18 +14,15 @@ export default function Hero() {
         {/* Texto */}
         <div className="hero__right">
           <h1 className="hero__title">
-            <span className="hero__hi">Hola!</span> soy{" "}
+            <span className="hero__hi">Hola! soy </span> 
             <span className="hero__name">Vicent</span>
           </h1>
 
           <p className="hero__subtitle">
             Desarrollo aplicaciones web con React y Node.js, cuidando tanto la experiencia de usuario como la calidad del código. Aquí puedes ver algunos de mis proyectos y las tecnologías con las que trabajo.
           </p>
-
+          <a className="btn btn-cv" href="/images/CV_VICENT_TORRES.pdf">Currículum</a>
         </div>
-
-        {/* Foto */}
-        
       </div>
     </section>
   );
