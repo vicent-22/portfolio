@@ -1,19 +1,16 @@
-import Contact from "./components/Contact";
-import Hero from "./components/Hero";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import "./styles/global.css"
+import Home from "./pages/Home";
+import About from "./pages/About";
 
 export default function App() {
   return (
-    <>
+    <HashRouter>
       <Navbar />
-      <Hero />
-      <Projects />
-      <Skills />
-      <Contact />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </HashRouter>
   );
 }
-

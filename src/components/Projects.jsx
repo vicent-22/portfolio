@@ -19,7 +19,7 @@ export default function Projects() {
               </div>
 
               <div className="actions">
-                <a className="btn btn--ghost" target="_blank" rel="noreferrer" href={p.repo}>
+                <a className="btn btn--ghost" href={p.repo}>
                   Código
                 </a>
               </div>
