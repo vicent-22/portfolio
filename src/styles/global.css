@@ -318,9 +318,6 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 
-/* =========================
-   About
-========================= */
 
 .about-page .about {
   display: grid;
@@ -330,7 +327,6 @@ a { color: inherit; text-decoration: none; }
 }
 
 .about-page .about__text {
-  text-align: left;
   max-width: 65ch;
 }
 
@@ -339,10 +335,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .about-page .about__text p {
+  text-align: justify;
   margin-bottom: 16px;
-  line-height: 1.75;
+  line-height: 1.5;
   font-size: 16.5px;
-  opacity: 0.85;
 }
 
 .about-page .about__avatar {
@@ -412,7 +408,8 @@ a { color: inherit; text-decoration: none; }
   }
 
   .about-page .about__text p {
-    text-align: center;
+    text-align: justify;
+
   }
 
   /* Ajuste del avatar en móvil */
