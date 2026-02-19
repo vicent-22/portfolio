@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import homeIcon from "../assets/home_icon.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -15,11 +16,17 @@ export default function Navbar() {
   return (
     <header className="nav">
       <div className="container">
+        
         <nav className="nav__links">
-          <Link to="/about">Sobre mí</Link>
-          <a href="#" onClick={(e) => (e.preventDefault(), go("projects"))}>Proyectos</a>
-          <a href="#" onClick={(e) => (e.preventDefault(), go("skills"))}>Skills</a>
-          <a className="btn" href="#" onClick={(e) => (e.preventDefault(), go("contact"))}>Contacto</a>
+          <span className="nav-home" >
+            <a href="/"><img src={homeIcon} alt="" /></a>
+          </span>
+          <div className="nav-right">
+            <Link to="/about">Sobre mí</Link>
+            <a href="#" onClick={(e) => (e.preventDefault(), go("projects"))}>Proyectos</a>
+            <a href="#" onClick={(e) => (e.preventDefault(), go("skills"))}>Skills</a>
+            <a className="btn" href="#" onClick={(e) => (e.preventDefault(), go("contact"))}>Contacto</a>
+          </div>
         </nav>
       </div>
     </header>

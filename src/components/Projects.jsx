@@ -8,20 +8,50 @@ export default function Projects() {
 
         <div className="grid">
           {projects.map((p) => (
-            <article key={p.title} className="card">
-              <h3>{p.title}</h3>
-              <p className="muted">{p.description}</p>
+            <article key={p.title} className="card card--flip">
+              <div className="card__inner">
+                {/* FRONT */}
+                <div className="card__face card__face--front">
+                  <img className="card__img" src={p.image} alt={p.title} />
 
-              <div className="chips">
-                {p.stack.map((s) => (
-                  <span className="chip" key={s}>{s}</span>
-                ))}
-              </div>
+                  <h3>{p.title}</h3>
 
-              <div className="actions">
-                <a className="btn btn--ghost" href={p.repo}>
-                  Código
-                </a>
+                  <div className="chips">
+                    {p.stack.map((s) => (
+                      <span className="chip" key={s}>
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="actions">
+                    <a
+                      className="btn btn--ghost"
+                      href={p.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Código
+                    </a>
+                  </div>
+                </div>
+
+                {/* BACK */}
+                <div className="card__face card__face--back">
+                  <h3>{p.title}</h3>
+                  <p className="muted">{p.description}</p>
+
+                  <div className="actions">
+                    <a
+                      className="btn btn--ghost"
+                      href={p.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Código
+                    </a>
+                  </div>
+                </div>
               </div>
             </article>
           ))}
