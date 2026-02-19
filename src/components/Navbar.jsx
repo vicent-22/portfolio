@@ -19,7 +19,7 @@ export default function Navbar() {
         
         <nav className="nav__links">
           <span className="nav-home" >
-            <a href="/portfolio/"><img src={homeIcon} alt="" /></a>
+            <Link to="/"><img src={homeIcon} alt="" /></Link>
           </span>
           <div className="nav-right">
             <Link to="/about">Sobre mí</Link>
