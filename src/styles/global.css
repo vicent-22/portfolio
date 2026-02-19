@@ -41,9 +41,6 @@ a { color: inherit; text-decoration: none; }
 
 .muted { opacity: 0.8; }
 
-/* =========================
-   Navbar
-========================= */
 .nav {
   background: rgba(11, 15, 25, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -104,6 +101,23 @@ a { color: inherit; text-decoration: none; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
+}
+
+.grid--skills {
+  display: grid;
+  grid-template-columns: repeat(2, 320px);
+  gap: 2rem;
+  justify-content: center;
+}
+
+.icons {
+  display: flex;
+  gap: 1.2rem;
+  padding-block-end: 20px;
+}
+
+.img-js{
+  width: 50px;
 }
 
 .card {
@@ -240,6 +254,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 16.5px;
   line-height: 1.65;
   opacity: 0.8;
+  text-align: justify;
 }
 
 
@@ -248,76 +263,64 @@ a { color: inherit; text-decoration: none; }
   margin-left: -80px;
 }
 
-.avatar::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(93,104,255,.35), transparent 45%),
-    radial-gradient(circle at 70% 60%, rgba(255,93,168,.28), transparent 45%);
-  filter: blur(10px);
-}
-
+.avatar::before,
 .avatar2::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(93,104,255,.35), transparent 45%),
-    radial-gradient(circle at 70% 60%, rgba(255,93,168,.28), transparent 45%);
-  filter: blur(10px);
+  display: none;
 }
 
 
-.avatar {
-  width: min(320px, 70vw);
-  aspect-ratio: 1 / 1;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.06);
-  box-shadow: 0 14px 40px rgba(0,0,0,.35);
-  padding: 12px;
-  position: relative;
-  overflow: hidden;
-}
 
+.avatar,
 .avatar2 {
-  margin: 0 auto 32px auto;
-  width: min(420px, 70vw);
-  aspect-ratio: 1 / 1;
-  border-radius: 22px;
-  border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.06);
-  box-shadow: 0 14px 40px rgba(0,0,0,.35);
-  padding: 12px;
-  position: relative;
-  overflow: hidden;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
 }
+
 
 
 
 .avatar__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.10);
-  background: #fff;
-  display: grid;
-  place-items: center;
+  border: none;
+  background: transparent;
 }
 
 
 
 .avatar_img {
-  width: 82%;
-  height: 82%;
+  object-position: center 30%;
+  width: 50%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 16px;
   display: block;
+
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  /* 🎮 borde gamer */
+  border: 2px solid rgba(93, 104, 255, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(93, 104, 255, 0.4),
+    0 0 18px rgba(93, 104, 255, 0.45),
+    0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
+.avatar2_img {
+  object-position: center 30%;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  /* 🎮 borde gamer */
+  border: 2px solid rgba(93, 104, 255, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(93, 104, 255, 0.4),
+    0 0 18px rgba(93, 104, 255, 0.45),
+    0 12px 30px rgba(0, 0, 0, 0.6);
+}
 
 .about-page .about {
   display: grid;
@@ -346,10 +349,139 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
 }
 
+/* =========================
+   Skills hover
+========================= */
+
+#skills .card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+#skills .card:hover {
+  transform: translateY(-8px) scale(1.03);
+
+  border-color: rgba(93, 104, 255, 0.6);
+
+  box-shadow:
+    0 0 0 1px rgba(93, 104, 255, 0.35),
+    0 0 18px rgba(93, 104, 255, 0.35),
+    0 14px 34px rgba(0, 0, 0, 0.6);
+}
+
+#skills .card h3 {
+  transition: color 0.3s ease;
+}
+
+#skills .card:hover h3 {
+  color: rgb(93, 104, 255);
+}
 
 /* =========================
-   Responsive
+   HOVERS (Navbar + Buttons + Contact icons)
 ========================= */
+
+/* ---------- Navbar links ---------- */
+.nav__links a,
+.nav__links a:visited {
+  position: relative;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* subrayado gamer animado */
+.nav__links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: rgba(93, 104, 255, 0.85);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+/* hover en links del navbar */
+.nav__links a:not(.btn):hover {
+  color: rgba(93, 104, 255, 1);
+  text-shadow: 0 0 14px rgba(93, 104, 255, 0.35);
+}
+
+.nav__links a:not(.btn):hover::after {
+  transform: scaleX(1);
+}
+
+/* icono Home dentro del botón */
+.nav-home img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.nav-home:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 10px rgba(93, 104, 255, 0.55));
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(93, 104, 255, 0.75);
+  box-shadow:
+    0 0 0 1px rgba(93, 104, 255, 0.25),
+    0 0 14px rgba(93, 104, 255, 0.25);
+}
+
+/* Botón ghost (Código, etc.) con un toque extra */
+.btn--ghost:hover {
+  background: rgba(93, 104, 255, 0.12);
+}
+
+/* ---------- Contact icons ---------- */
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+}
+
+.btn-contact:hover {
+  transform: translateY(-3px) scale(1.08);
+  opacity: 0.95;
+  filter: drop-shadow(0 0 12px rgba(93, 104, 255, 0.6));
+}
+
+/* ---------- Accesibilidad: focus con teclado ---------- */
+.nav__links a:focus-visible,
+.btn:focus-visible,
+.btn-contact:focus-visible {
+  outline: 2px solid rgba(93, 104, 255, 0.75);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* ---------- Móvil/touch: evita hover “pegajoso” ---------- */
+@media (hover: none) {
+  .nav__links a:not(.btn)::after { display: none; }
+  .nav__links a:not(.btn):hover,
+  .btn:hover,
+  .btn-contact:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+
 @media (max-width: 1024px) {
   .container { padding: 0 16px; }
   .hero { padding: 72px 0 32px; }
@@ -362,7 +494,17 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 900px) {
-.hero__grid {
+
+   .nav__links {
+    justify-content: center;
+  }
+
+
+  .hero .avatar_img {
+    width: 100%;
+  }
+  
+  .hero__grid {
     grid-template-columns: 1fr;
     gap: 18px;
   }
@@ -385,8 +527,9 @@ a { color: inherit; text-decoration: none; }
   }
 
   .avatar {
-    width: min(260px, 75vw);
+    width: min(300px, 75vw);
     border-radius: 22px;
+    
   }
 
 
@@ -395,12 +538,10 @@ a { color: inherit; text-decoration: none; }
     gap: 24px;
   }
 
-  /* Que la imagen salga arriba */
   .about-page .about__avatar {
     order: -1;
   }
 
-  /* Texto centrado y con ancho cómodo */
   .about-page .about__text {
     text-align: center;
     max-width: 60ch;
@@ -412,10 +553,18 @@ a { color: inherit; text-decoration: none; }
 
   }
 
-  /* Ajuste del avatar en móvil */
   .about-page .about .avatar2 {
     width: min(280px, 80vw);
     margin: 0 auto;
+  }
+
+    .grid--skills {
+    grid-template-columns: 1fr; /* 1 card por fila */
+    justify-items: center;      /* centra la card */
+  }
+
+  .grid--skills .card {
+    width: min(320px, 90vw);    /* mantiene tamaño, pero adapta en móvil */
   }
 }
 

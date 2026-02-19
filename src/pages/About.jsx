@@ -24,7 +24,7 @@ export default function About() {
       <div className="about__avatar">
         <div className="avatar2">
           <div className="avatar__inner">
-            <img src={perfil} className="avatar_img" alt="foto de perfil" />
+            <img src={perfil} className="avatar2_img" alt="foto de perfil" />
           </div>
         </div>
       </div>

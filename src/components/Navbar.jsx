@@ -18,9 +18,9 @@ export default function Navbar() {
       <div className="container">
         
         <nav className="nav__links">
-          <span className="nav-home" >
-            <Link to="/"><img src={homeIcon} alt="" /></Link>
-          </span>
+          <Link to="/" className="nav-home btn" >
+            <img src={homeIcon} alt="" />
+          </Link>
           <div className="nav-right">
             <Link to="/about">Sobre mí</Link>
             <a href="#" onClick={(e) => (e.preventDefault(), go("projects"))}>Proyectos</a>
