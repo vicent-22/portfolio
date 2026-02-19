@@ -10,7 +10,6 @@ export default function Projects() {
           {projects.map((p) => (
             <article key={p.title} className="card card--flip">
               <div className="card__inner">
-                {/* FRONT */}
                 <div className="card__face card__face--front">
                   <img className="card__img" src={p.image} alt={p.title} />
 
@@ -36,7 +35,6 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* BACK */}
                 <div className="card__face card__face--back">
                   <h3>{p.title}</h3>
                   <p className="muted">{p.description}</p>

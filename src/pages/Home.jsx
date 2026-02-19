@@ -12,8 +12,7 @@ export default function Home() {
   useEffect(() => {
     const id = location.state?.scrollTo;
     if (!id) return;
-
-    // espera a que se pinte el DOM
+    
     setTimeout(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       navigate(".", { replace: true, state: null });
